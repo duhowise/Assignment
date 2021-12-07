@@ -7,6 +7,7 @@ using Assignment.Models;
 using NUnit.Framework;
 
 namespace Assignment.Test.Extensions;
+
 [TestFixture]
 public class ExtensionMethodsTests
 {
@@ -25,18 +26,14 @@ public class ExtensionMethodsTests
             "maim",
             "shirts",
             "trouser",
-
         };
         var result = words.MostCommonWords();
 
 
-        Assert.Multiple(() =>
-        {
-           StringAssert.AreEqualIgnoringCase("trouser",result.First());
-        });
+        StringAssert.AreEqualIgnoringCase("trouser", result.First());
     }
-    
-    
+
+
     [Test]
     public void ExtensionMethods_MostCommonWordsExcept_Returns_List_Of_Most_Common_Words_except_the_specified_input()
     {
@@ -52,14 +49,10 @@ public class ExtensionMethodsTests
             "maim",
             "shirts",
             "trouser",
-
         };
-        var actualResult =words.MostCommonWordsExcept(5);
+        var actualResult = words.MostCommonWordsExcept(5);
 
 
-        Assert.Multiple(() =>
-        {
-            Assert.AreEqual(5,actualResult.Length);
-        });
+        Assert.AreEqual(5, actualResult.Length);
     }
 }
