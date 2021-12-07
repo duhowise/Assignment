@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using Assignment.Extensions;
 using Assignment.Models;
@@ -10,18 +11,28 @@ namespace Assignment.Test.Extensions;
 public class ExtensionMethodsTests
 {
     [Test]
-    public void ExtensionMethods_MostCommonWords_Returns_List_Of_Most_Common_Words_In_Given_Lisyt_of_Words()
+    public void ExtensionMethods_MostCommonWords_Returns_List_Of_Most_Common_Words_In_Given_List_of_Words()
     {
         var words = new List<string>
         {
-            "This trouser perfectly diem with a blue dress.",
-            "This trouser good pairs with a green ok.",
-            "This trouser nice pairs with a red shirt.",
+            "trouser",
+            "trouser",
+            "trouser",
+            "dance",
+            "trouser",
+            "blouse",
+            "trouser",
+            "maim",
+            "shirts",
+            "trouser",
 
         };
         var result = words.MostCommonWords();
 
 
-
+        Assert.Multiple(() =>
+        {
+           StringAssert.AreEqualIgnoringCase("trouser",result.First());
+        });
     }
 }
