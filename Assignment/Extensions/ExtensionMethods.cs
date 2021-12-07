@@ -30,7 +30,7 @@ public static class ExtensionMethods
 
     public static string[] GetAllProductSizes(this IEnumerable<Product> products)
     {
-        return products.SelectMany(x => x.Sizes).Select(x => x.ToString()).Distinct().ToArray();
+        return products.SelectMany(x => x.Sizes).Distinct().ToArray();
     }
 
     public static string AddHtmlTags(string productDescription, string textToHighlight)
