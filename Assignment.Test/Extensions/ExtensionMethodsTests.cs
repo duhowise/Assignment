@@ -35,4 +35,31 @@ public class ExtensionMethodsTests
            StringAssert.AreEqualIgnoringCase("trouser",result.First());
         });
     }
+    
+    
+    [Test]
+    public void ExtensionMethods_MostCommonWordsExcept_Returns_List_Of_Most_Common_Words_except_the_specified_input()
+    {
+        var words = new List<string>
+        {
+            "trouser",
+            "trouser",
+            "trouser",
+            "dance",
+            "trouser",
+            "blouse",
+            "trouser",
+            "maim",
+            "shirts",
+            "trouser",
+
+        };
+        var actualResult =words.MostCommonWordsExcept(5);
+
+
+        Assert.Multiple(() =>
+        {
+            Assert.AreEqual(5,actualResult.Length);
+        });
+    }
 }

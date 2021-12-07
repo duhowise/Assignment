@@ -14,9 +14,11 @@ public static class ExtensionMethods
     
     public static string[] MostCommonWordsExcept(this IEnumerable<string> words, int take)
     {
-        var wordList = words as string[] ?? words.ToArray();
-        var five = wordList.Take(take);
-        return wordList.Except(five).ToArray();
+        var wordList =  words.ToList();
+       var result= wordList.Skip(take * (2 - 1))
+            .Take(take).ToList();
+
+        return result.ToArray();
     }
 
      
